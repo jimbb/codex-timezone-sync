@@ -396,6 +396,22 @@ class TestTimezonePlugin(unittest.TestCase):
         self.assertIn('<timezone>America/Los_Angeles</timezone>',output['input'][0]['content'])
         self.assertIsNone(invoke(output))
 
+    def test_already_correct_environment_is_not_a_failure(self):
+        # Regression: an environment block that already matched the egress zone used
+        # to be logged as rewrite_failed, inflating the failure counter and archiving
+        # the full request body for a request that needed no change at all.
+        self.config.unlink(missing_ok=True)
+        self.statsfile.unlink(missing_ok=True)
+        self.failfile.unlink(missing_ok=True)
+        local_date=datetime.now(timezone(timedelta(hours=-7))).strftime('%Y-%m-%d')
+        req={'input':[{'role':'developer','content':
+              '<environment_context><timezone>America/Los_Angeles</timezone>'
+              f'<current_date>{local_date}</current_date></environment_context>'}]}
+        self.assertIsNone(invoke(req))
+        self.assertEqual(self._management('stats')[1],{'ok':True,'success':0,'failure':0})
+        self.assertEqual(self._management('failures')[1]['records'],[])
+        self.assertFalse(self.failfile.exists())
+
     def test_does_not_modify_assistant_or_tool_output(self):
         fixture='<environment_context><timezone>Asia/Taipei</timezone></environment_context>'
         req={'input':[{'type':'function_call_output','output':fixture},

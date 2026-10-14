@@ -201,13 +201,19 @@ static char *splice(const char *src,size_t n,size_t where,size_t remove,const ch
   dst[size]=0;*out_n=size;return dst;
 }
 static int normalize_existing_environments(const char *,size_t,char **,size_t *);
-static char *rewrite_payload(const char *payload,size_t len,size_t *new_len) {
+static char *rewrite_payload(const char *payload,size_t len,size_t *new_len,int *no_change) {
+  if(no_change)*no_change=0;
   if(len==0||len>MAX_REQUEST)return NULL;
   tok *ts=malloc(MAX_TOKENS*sizeof(tok));if(!ts)return NULL;
   int nt=parse_json(payload,len,ts,MAX_TOKENS);
   if(nt<1||ts[0].type!=OBJECT){free(ts);return NULL;}
   char context[280];if(!timezone_context(context,sizeof(context))){free(ts);return NULL;}
   char *normalized=NULL;int env_status=normalize_existing_environments(payload,len,&normalized,new_len);
+  // env_status 2 means the environment block was found and already correct, so there
+  // is nothing to rewrite. Flag it as no_change; returning a plain NULL made the
+  // caller log rewrite_failed and archive the whole request body for a request that
+  // needed no change.
+  if(env_status==2){free(ts);if(no_change)*no_change=1;return NULL;}
   if(env_status!=0){free(ts);return env_status==1?normalized:NULL;}
   char *answer=NULL;
   int instructions=get_field(payload,ts,nt,0,"instructions");
@@ -344,9 +350,10 @@ static void intercept(const uint8_t *request,size_t len,cliproxy_buffer *respons
     free(payload);reply(response,"{\"ok\":true,\"result\":{}}");return;
   }
   int already=contains((char *)payload,payload_len,TZ_MARKER);
-  size_t next_len=0;char *rewritten=rewrite_payload((char *)payload,payload_len,&next_len);
+  size_t next_len=0;int no_change=0;
+  char *rewritten=rewrite_payload((char *)payload,payload_len,&next_len,&no_change);
   if(!rewritten) {
-    if(!already) {
+    if(!already && !no_change) {
       sync_state current;
       stats_update(0,1,0,NULL,NULL);
       persist_failure(load_state(&current)?"rewrite_failed":"state_unavailable",
@@ -397,7 +404,7 @@ static void handle_selftest(cliproxy_buffer *out) {
   }
   const char *sample="{\"model\":\"codex-selftest\",\"input\":[]}";
   size_t out_len=0;
-  char *converted=rewrite_payload(sample,strlen(sample),&out_len);
+  char *converted=rewrite_payload(sample,strlen(sample),&out_len,NULL);
   int ok=converted && contains(converted,out_len,TZ_MARKER) && contains(converted,out_len,state.zone);
   free(converted);
   if(!ok) {
