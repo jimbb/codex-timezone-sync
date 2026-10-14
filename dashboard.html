@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-Hans">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,9 +8,10 @@
 <style>
 :root{color-scheme:dark;--bg:#121110;--card:#1b1a18;--card2:#22211f;--line:#605035;--sub:#b3b0aa;--text:#f1f0ee;--gold:#edb858;--gold2:#c18c3e;--green:#43d98b;--red:#f58b79}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 55% 5%,#201e1b 0%,var(--bg) 60%);font:15px/1.5 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;color:var(--text);min-height:100vh}
-button,input{font:inherit}button{cursor:pointer}button:disabled,input:disabled{opacity:.48;cursor:not-allowed}button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+button,input,select{font:inherit}button{cursor:pointer}button:disabled,input:disabled{opacity:.48;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .app{max-width:1520px;margin:auto;padding:25px 36px 36px}.top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}.identity{display:flex;align-items:center;gap:24px}.symbol{width:84px;height:68px;flex:none;color:var(--gold)}h1{font-size:34px;letter-spacing:-.5px;line-height:1.12;margin:0 0 5px;font-weight:700}h2{font-size:19px;margin:0 0 13px;font-weight:700}.subtitle{font-size:18px;letter-spacing:.3px;color:var(--sub)}
 .toptools{display:flex;gap:8px;align-items:center}.square{width:47px;height:45px;border:1px solid #49443c;background:#1b1a18;border-radius:9px;color:#ddd;display:grid;place-items:center}.square:hover{color:var(--gold);border-color:var(--gold)}
+.lang{height:45px;border:1px solid #49443c;background:#1b1a18;border-radius:9px;color:#ddd;padding:0 10px}.lang:hover{color:var(--gold);border-color:var(--gold)}
 svg{width:22px;height:22px;vertical-align:middle;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.symbol svg{width:100%;height:100%;stroke-width:1.5}
 .auth{display:flex;gap:12px;align-items:center;border:1px solid #3b352c;border-radius:12px;padding:12px 16px;margin-bottom:14px;background:#211f1b}.auth label{font-weight:600;white-space:nowrap}.auth input{background:#141310;color:#fff;border:1px solid #4c463c;padding:10px 13px;border-radius:8px;flex:1;min-width:100px;max-width:360px}.auth .helper{color:var(--sub);font-size:13px;flex:1}.auth .connected{color:var(--green)}
 .tabs{display:flex;margin-bottom:14px}.tab{height:47px;min-width:112px;padding:0 20px;color:#d5d2ce;background:#201e1b;border:1px solid #35302a;margin-left:-1px}.tab:first-child{border-radius:10px 0 0 10px;margin-left:0}.tab:last-child{border-radius:0 10px 10px 0}.tab[aria-selected=true]{background:#2a2316;border:1px solid var(--gold);color:#f1c578;font-weight:700;border-radius:10px;position:relative;z-index:1}
@@ -24,7 +25,7 @@ svg{width:22px;height:22px;vertical-align:middle;fill:none;stroke:currentColor;s
 .metrics{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-bottom:17px}.metrics strong{font-size:22px}.metrics .bar-actions{margin-left:auto}.metrics button{min-height:38px}
 .request-preview{white-space:pre-wrap;overflow:auto;max-height:420px;max-width:100%;font-size:12px;word-break:break-word;background:#11100f;border:1px solid #393632;padding:14px;border-radius:8px}
 @media(max-width:1150px){.status{grid-template-columns:1fr 1.3fr 1.3fr 1fr}.status-btn{grid-column:1/-1;padding:18px 10px 0}.status-btn button{width:100%;min-height:50px}.stat{padding:0 13px}.content-grid{grid-template-columns:1fr}.feature-head,.feature{grid-template-columns:27% 44% 17% 12%}}
-@media(max-width:700px){.app{padding:18px 13px}.identity{gap:10px}.symbol{width:48px;height:48px}h1{font-size:22px}.subtitle{font-size:13px}.toptools .square{width:39px;height:39px}.auth{flex-wrap:wrap}.auth .helper{min-width:100%}.tabs .tab{min-width:0;flex:1}.panel{padding:15px}.status{grid-template-columns:1fr 1fr;gap:16px}.stat{padding:0 6px;border:0}.stat label{font-size:13px}.stat strong{font-size:14px}.status-btn{padding:0}.feature-head,.feature{grid-template-columns:35% 43% 22%}.feature-head span:nth-child(4),.feature span:nth-child(4){grid-column:3;grid-row:auto}.feature-head span:nth-child(3),.feature span:nth-child(3){display:none}.feature span:nth-child(2){font-size:12px}.feature{padding:8px;min-height:65px}.feature-head{padding:8px}.settings-grid{grid-template-columns:1fr}}
+@media(max-width:700px){.app{padding:18px 13px}.identity{gap:10px}.symbol{width:48px;height:48px}h1{font-size:22px}.subtitle{font-size:13px}.toptools .square{width:39px;height:39px}.lang{height:39px}.auth{flex-wrap:wrap}.auth .helper{min-width:100%}.tabs .tab{min-width:0;flex:1}.panel{padding:15px}.status{grid-template-columns:1fr 1fr;gap:16px}.stat{padding:0 6px;border:0}.stat label{font-size:13px}.stat strong{font-size:14px}.status-btn{padding:0}.feature-head,.feature{grid-template-columns:35% 43% 22%}.feature-head span:nth-child(4),.feature span:nth-child(4){grid-column:3;grid-row:auto}.feature-head span:nth-child(3),.feature span:nth-child(3){display:none}.feature span:nth-child(2){font-size:12px}.feature{padding:8px;min-height:65px}.feature-head{padding:8px}.settings-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -32,68 +33,242 @@ svg{width:22px;height:22px;vertical-align:middle;fill:none;stroke:currentColor;s
   <header class="top">
     <div class="identity">
       <div class="symbol" aria-hidden="true"><svg viewBox="0 0 88 70"><circle cx="37" cy="31" r="26"/><path d="M11 31h45M37 5c-17 14-18 36 0 51M37 5c16 12 17 31 7 45M16 18h42"/><circle cx="59" cy="51" r="16" fill="#191713"/><path d="M59 41v11l8 5"/></svg></div>
-      <div><h1>Codex Timezone Sync</h1><div class="subtitle">同步 Codex 请求时区与出口节点时区</div></div>
+      <div><h1>Codex Timezone Sync</h1><div class="subtitle" data-i18n="app.subtitle">同步 Codex 请求时区与出口节点时区</div></div>
     </div>
-    <div class="toptools"><button class="square" id="top-refresh" title="刷新信息" aria-label="刷新信息"><svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5 9A8 8 0 0 1 19 7l1 5M4 12l1 5a8 8 0 0 0 14-2"/></svg></button></div>
+    <div class="toptools">
+      <select id="lang" class="lang" aria-label="Language">
+        <option value="zh-Hans">简体中文</option>
+        <option value="zh-Hant">繁體中文</option>
+        <option value="en">English</option>
+      </select>
+      <button class="square" id="top-refresh" data-i18n-title="action.refresh" data-i18n-aria="action.refresh" title="刷新信息" aria-label="刷新信息"><svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5 9A8 8 0 0 1 19 7l1 5M4 12l1 5a8 8 0 0 0 14-2"/></svg></button>
+    </div>
   </header>
-  <section class="auth" aria-label="管理接口连接">
-    <label for="management-key">管理密钥</label><input id="management-key" type="password" autocomplete="off" placeholder="输入 CPA Management Key"/>
-    <button id="connect" class="outline" style="min-height:40px">连接</button>
-    <div id="connection" class="helper" role="status">优先复用 CPA Management 已记住的登录凭据。未启用记住密码时需重新输入；插件不另行存储密钥。</div>
+  <section class="auth" data-i18n-aria="auth.aria" aria-label="管理接口连接">
+    <label for="management-key" data-i18n="auth.keyLabel">管理密钥</label><input id="management-key" type="password" autocomplete="off" data-i18n-placeholder="auth.keyPlaceholder" placeholder="输入 CPA Management Key"/>
+    <button id="connect" class="outline" style="min-height:40px" data-i18n="auth.connect">连接</button>
+    <div id="connection" class="helper" role="status" data-i18n="auth.helper">优先复用 CPA Management 已记住的登录凭据。未启用记住密码时需重新输入；插件不另行存储密钥。</div>
   </section>
-  <div class="tabs" role="tablist" aria-label="管理面板">
-    <button class="tab" role="tab" aria-selected="true" data-view="overview">概览</button>
-    
-    
-    <button class="tab" role="tab" aria-selected="false" data-view="settings">设置</button>
+  <div class="tabs" role="tablist" data-i18n-aria="tabs.aria" aria-label="管理面板">
+    <button class="tab" role="tab" aria-selected="true" data-view="overview" data-i18n="tab.overview">概览</button>
+
+
+    <button class="tab" role="tab" aria-selected="false" data-view="settings" data-i18n="tab.settings">设置</button>
   </div>
   <main>
     <section id="overview-view">
       <div class="panel status">
-        <div class="stat"><label>同步状态</label><strong id="sync-state" class="muted">等待连接</strong></div>
-        <div class="stat"><label>当前时区</label><strong id="zone">—</strong></div>
-        <div class="stat"><label>出口时区偏移</label><strong id="offset">—</strong></div>
-        <div class="stat"><label>出口 IP</label><strong id="ip">—</strong></div>
-        <div class="status-btn"><button class="gold" id="refresh"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9M21 3v7h-7"/></svg>刷新状态</button></div>
+        <div class="stat"><label data-i18n="status.syncState">同步状态</label><strong id="sync-state" class="muted" data-i18n="status.waiting">等待连接</strong></div>
+        <div class="stat"><label data-i18n="status.zone">当前时区</label><strong id="zone">—</strong></div>
+        <div class="stat"><label data-i18n="status.offset">出口时区偏移</label><strong id="offset">—</strong></div>
+        <div class="stat"><label data-i18n="status.ip">出口 IP</label><strong id="ip">—</strong></div>
+        <div class="status-btn"><button class="gold" id="refresh"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9M21 3v7h-7"/></svg><span data-i18n="status.refreshBtn">刷新状态</span></button></div>
       </div>
-      <div class="panel metrics" aria-label="请求校正统计">
-        <span>成功修改 <strong class="positive" id="count-success">—</strong></span>
-        <span>失败修改 <strong class="danger" id="count-failure">—</strong></span>
-        <div class="bar-actions"><button class="outline" id="clear-stats">清空统计</button></div>
+      <div class="panel metrics" data-i18n-aria="metrics.aria" aria-label="请求校正统计">
+        <span><span data-i18n="metrics.success">成功修改</span> <strong class="positive" id="count-success">—</strong></span>
+        <span><span data-i18n="metrics.failure">失败修改</span> <strong class="danger" id="count-failure">—</strong></span>
+        <div class="bar-actions"><button class="outline" id="clear-stats" data-i18n="metrics.clear">清空统计</button></div>
       </div>
       <div class="content-grid">
         <div class="panel">
-          <h2><span class="section-icon">⚙</span>核心功能</h2>
-          <div class="feature-head"><span>功能</span><span>说明</span><span>状态</span><span>启用</span></div>
-          <div class="feature"><strong>启用时区同步</strong><span>将 Codex 请求时区与出口节点时区保持一致</span><span id="flag-sync" class="muted">—</span><label class="switch"><input id="toggle-sync" type="checkbox" disabled aria-label="启用时区同步"><span></span></label></div>
-          <div class="feature"><strong>出口时区检测</strong><span>读取出口 IP 与 IANA 时区</span><span id="flag-state" class="muted">—</span><button id="probe-egress" class="outline" style="min-height:34px;padding:4px 12px">获取</button></div>
-          <div class="feature"><strong>请求日期校正</strong><span>替换现有环境时区与日期，缺失时自动补入</span><span id="flag-rewrite" class="muted">—</span><span class="muted">随同步</span></div>
-          <div class="feature"><strong>上游模型一致性</strong><span>只读比较入站请求与上游响应报告的模型</span><span class="positive">● 监测中</span><span class="muted">只读</span></div>
-          <div class="feature"><strong>记录请求日志</strong><span>普通活动日志仅记录校正结果；失败请求单独保存</span><span id="flag-log" class="muted">—</span><label class="switch"><input id="toggle-log" type="checkbox" disabled aria-label="记录请求日志"><span></span></label></div>
+          <h2><span class="section-icon">⚙</span><span data-i18n="core.title">核心功能</span></h2>
+          <div class="feature-head"><span data-i18n="core.col.feature">功能</span><span data-i18n="core.col.desc">说明</span><span data-i18n="core.col.status">状态</span><span data-i18n="core.col.enable">启用</span></div>
+          <div class="feature"><strong data-i18n="core.sync.title">启用时区同步</strong><span data-i18n="core.sync.desc">将 Codex 请求时区与出口节点时区保持一致</span><span id="flag-sync" class="muted">—</span><label class="switch"><input id="toggle-sync" type="checkbox" disabled data-i18n-aria="core.sync.title" aria-label="启用时区同步"><span></span></label></div>
+          <div class="feature"><strong data-i18n="core.egress.title">出口时区检测</strong><span data-i18n="core.egress.desc">读取出口 IP 与 IANA 时区</span><span id="flag-state" class="muted">—</span><button id="probe-egress" class="outline" style="min-height:34px;padding:4px 12px" data-i18n="core.egress.probe">获取</button></div>
+          <div class="feature"><strong data-i18n="core.date.title">请求日期校正</strong><span data-i18n="core.date.desc">替换现有环境时区与日期，缺失时自动补入</span><span id="flag-rewrite" class="muted">—</span><span class="muted" data-i18n="core.date.follow">随同步</span></div>
+          <div class="feature"><strong data-i18n="core.model.title">上游模型一致性</strong><span data-i18n="core.model.desc">只读比较入站请求与上游响应报告的模型</span><span class="positive" data-i18n="core.model.monitoring">● 监测中</span><span class="muted" data-i18n="core.model.readonly">只读</span></div>
+          <div class="feature"><strong data-i18n="core.log.title">记录请求日志</strong><span data-i18n="core.log.desc">普通活动日志仅记录校正结果；失败请求单独保存</span><span id="flag-log" class="muted">—</span><label class="switch"><input id="toggle-log" type="checkbox" disabled data-i18n-aria="core.log.title" aria-label="记录请求日志"><span></span></label></div>
         </div>
-        <aside class="panel operations"><h2><span class="section-icon">🔧</span>操作</h2><div class="divider"></div>
-          <button class="gold" id="selftest"><svg viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z"/></svg>测试同步</button>
-          <button class="outline" id="refresh2"><svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5 9A8 8 0 0 1 19 7M5 17a8 8 0 0 0 14-2"/></svg>刷新信息</button>
-          <button class="outline" id="save"><svg viewBox="0 0 24 24"><path d="M5 3h13l3 3v15H3V3zM7 3v7h10V3M7 21v-8h10v8"/></svg>保存设置</button>
-          <p class="hint">测试同步是本地请求改写自检，不会发送真实 Codex 请求。</p>
+        <aside class="panel operations"><h2><span class="section-icon">🔧</span><span data-i18n="ops.title">操作</span></h2><div class="divider"></div>
+          <button class="gold" id="selftest"><svg viewBox="0 0 24 24"><path d="m8 5 11 7-11 7z"/></svg><span data-i18n="ops.selftest">测试同步</span></button>
+          <button class="outline" id="refresh2"><svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5 9A8 8 0 0 1 19 7M5 17a8 8 0 0 0 14-2"/></svg><span data-i18n="ops.refresh">刷新信息</span></button>
+          <button class="outline" id="save"><svg viewBox="0 0 24 24"><path d="M5 3h13l3 3v15H3V3zM7 3v7h10V3M7 21v-8h10v8"/></svg><span data-i18n="ops.save">保存设置</span></button>
+          <p class="hint" data-i18n="ops.hint">测试同步是本地请求改写自检，不会发送真实 Codex 请求。</p>
           <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
         </aside>
       </div>
-      <section class="panel log-panel"><div class="bar"><div><h2>最近活动 · 时区与模型监测</h2><p>显示协议、原始时区、校正时区及上游报告模型；未提供的数据标记为未知。</p></div><div class="bar-actions"><button class="outline" id="refresh-activity">刷新活动</button><button class="outline" id="clear-activity">清空</button></div></div><div class="table-wrap"><table class="table"><thead><tr><th>时间</th><th>协议</th><th>校正前时区</th><th>校正后时区</th><th>请求模型</th><th>上游模型</th><th>状态</th></tr></thead><tbody id="recent-body"><tr><td colspan="7" class="empty">连接后显示活动</td></tr></tbody></table></div></section>
-      <section class="panel log-panel"><div class="bar"><div><h2>校正失败日志</h2><p>只保存校正失败的 Codex 请求体。可能包含完整提示词等敏感内容，请限制管理密钥及日志文件的访问权限。</p></div><div class="bar-actions"><button class="outline" id="refresh-failures">刷新失败日志</button><button class="outline" id="clear-failures">清空失败日志</button></div></div>
-        <div class="table-wrap"><table class="table"><thead><tr><th>时间</th><th>协议</th><th>失败原因</th><th>请求大小</th><th>请求详情</th></tr></thead><tbody id="failure-body"><tr><td colspan="5" class="empty">连接后显示失败日志</td></tr></tbody></table></div>
-        <p id="failure-description" class="hint">点击“查看”后才会读取完整请求体。</p><pre id="failure-json" class="request-preview" hidden></pre>
+      <section class="panel log-panel"><div class="bar"><div><h2 data-i18n="activity.title">最近活动 · 时区与模型监测</h2><p data-i18n="activity.desc">显示协议、原始时区、校正时区及上游报告模型；未提供的数据标记为未知。</p></div><div class="bar-actions"><button class="outline" id="refresh-activity" data-i18n="activity.refresh">刷新活动</button><button class="outline" id="clear-activity" data-i18n="activity.clear">清空</button></div></div><div class="table-wrap"><table class="table"><thead><tr><th data-i18n="activity.col.time">时间</th><th data-i18n="activity.col.protocol">协议</th><th data-i18n="activity.col.before">校正前时区</th><th data-i18n="activity.col.after">校正后时区</th><th data-i18n="activity.col.model">请求模型</th><th data-i18n="activity.col.upstream">上游模型</th><th data-i18n="activity.col.status">状态</th></tr></thead><tbody id="recent-body"><tr><td colspan="7" class="empty" data-i18n="activity.empty">连接后显示活动</td></tr></tbody></table></div></section>
+      <section class="panel log-panel"><div class="bar"><div><h2 data-i18n="failures.title">校正失败日志</h2><p data-i18n="failures.desc">只保存校正失败的 Codex 请求体。可能包含完整提示词等敏感内容，请限制管理密钥及日志文件的访问权限。</p></div><div class="bar-actions"><button class="outline" id="refresh-failures" data-i18n="failures.refresh">刷新失败日志</button><button class="outline" id="clear-failures" data-i18n="failures.clear">清空失败日志</button></div></div>
+        <div class="table-wrap"><table class="table"><thead><tr><th data-i18n="failures.col.time">时间</th><th data-i18n="failures.col.protocol">协议</th><th data-i18n="failures.col.reason">失败原因</th><th data-i18n="failures.col.size">请求大小</th><th data-i18n="failures.col.detail">请求详情</th></tr></thead><tbody id="failure-body"><tr><td colspan="5" class="empty" data-i18n="failures.empty">连接后显示失败日志</td></tr></tbody></table></div>
+        <p id="failure-description" class="hint" data-i18n="failures.hint">点击“查看”后才会读取完整请求体。</p><pre id="failure-json" class="request-preview" hidden></pre>
       </section>
     </section>
-    <section id="settings-view" class="panel"><h2>设置说明</h2><div class="settings-grid"><div class="setting-card"><strong>生效方式</strong><p>在「概览」修改开关后点击「保存设置」，配置立即生效，不需要重启 CPA。</p></div><div class="setting-card"><strong>出口时区来源</strong><p>定时任务及手动获取均由服务器宿主机通过 Mihomo 探测，手动获取需要刷新辅助服务运行。</p></div><div class="setting-card"><strong>日志与隐私</strong><p>普通活动记录不保存提示词；失败日志独立保存完整 Codex 请求体（可能含敏感信息），权限为 0600，单文件上限 48 MiB。</p></div><div class="setting-card"><strong>状态有效期</strong><p>检测记录超过两小时将被视为过期，插件暂停注入，以免使用错误时区。</p></div></div></section>
+    <section id="settings-view" class="panel"><h2 data-i18n="settings.title">设置说明</h2><div class="settings-grid"><div class="setting-card"><strong data-i18n="settings.card1.title">生效方式</strong><p data-i18n="settings.card1.body">在「概览」修改开关后点击「保存设置」，配置立即生效，不需要重启 CPA。</p></div><div class="setting-card"><strong data-i18n="settings.card2.title">出口时区来源</strong><p data-i18n="settings.card2.body">定时任务及手动获取均由服务器宿主机通过 Mihomo 探测，手动获取需要刷新辅助服务运行。</p></div><div class="setting-card"><strong data-i18n="settings.card3.title">日志与隐私</strong><p data-i18n="settings.card3.body">普通活动记录不保存提示词；失败日志独立保存完整 Codex 请求体（可能含敏感信息），权限为 0600，单文件上限 48 MiB。</p></div><div class="setting-card"><strong data-i18n="settings.card4.title">状态有效期</strong><p data-i18n="settings.card4.body">检测记录超过两小时将被视为过期，插件暂停注入，以免使用错误时区。</p></div></div></section>
   </main>
-  <div class="footer" id="updated">未连接管理接口</div>
+  <div class="footer" id="updated" data-i18n="footer.disconnected">未连接管理接口</div>
 </div>
 <script>
 'use strict';
 (() => {
   const path='/v0/management/plugins/codex-timezone-sync/';
   const $=id=>document.getElementById(id);
+  const I18N_KEY='codex-tz-lang';
+
+  const I18N={
+  'zh-Hans':{
+    'doc.title':'Codex Timezone Sync',
+    'app.subtitle':'同步 Codex 请求时区与出口节点时区',
+    'action.refresh':'刷新信息',
+    'auth.aria':'管理接口连接','auth.keyLabel':'管理密钥','auth.keyPlaceholder':'输入 CPA Management Key','auth.connect':'连接',
+    'auth.helper':'优先复用 CPA Management 已记住的登录凭据。未启用记住密码时需重新输入；插件不另行存储密钥。',
+    'tabs.aria':'管理面板','tab.overview':'概览','tab.settings':'设置',
+    'status.syncState':'同步状态','status.waiting':'等待连接','status.zone':'当前时区','status.offset':'出口时区偏移','status.ip':'出口 IP','status.refreshBtn':'刷新状态',
+    'metrics.aria':'请求校正统计','metrics.success':'成功修改','metrics.failure':'失败修改','metrics.clear':'清空统计',
+    'core.title':'核心功能','core.col.feature':'功能','core.col.desc':'说明','core.col.status':'状态','core.col.enable':'启用',
+    'core.sync.title':'启用时区同步','core.sync.desc':'将 Codex 请求时区与出口节点时区保持一致',
+    'core.egress.title':'出口时区检测','core.egress.desc':'读取出口 IP 与 IANA 时区','core.egress.probe':'获取',
+    'core.date.title':'请求日期校正','core.date.desc':'替换现有环境时区与日期，缺失时自动补入','core.date.follow':'随同步',
+    'core.model.title':'上游模型一致性','core.model.desc':'只读比较入站请求与上游响应报告的模型','core.model.monitoring':'● 监测中','core.model.readonly':'只读',
+    'core.log.title':'记录请求日志','core.log.desc':'普通活动日志仅记录校正结果；失败请求单独保存',
+    'ops.title':'操作','ops.selftest':'测试同步','ops.refresh':'刷新信息','ops.save':'保存设置',
+    'ops.hint':'测试同步是本地请求改写自检，不会发送真实 Codex 请求。',
+    'activity.title':'最近活动 · 时区与模型监测','activity.desc':'显示协议、原始时区、校正时区及上游报告模型；未提供的数据标记为未知。',
+    'activity.refresh':'刷新活动','activity.clear':'清空',
+    'activity.col.time':'时间','activity.col.protocol':'协议','activity.col.before':'校正前时区','activity.col.after':'校正后时区','activity.col.model':'请求模型','activity.col.upstream':'上游模型','activity.col.status':'状态',
+    'activity.empty':'连接后显示活动','activity.emptyRows':'暂无活动记录',
+    'failures.title':'校正失败日志','failures.desc':'只保存校正失败的 Codex 请求体。可能包含完整提示词等敏感内容，请限制管理密钥及日志文件的访问权限。',
+    'failures.refresh':'刷新失败日志','failures.clear':'清空失败日志',
+    'failures.col.time':'时间','failures.col.protocol':'协议','failures.col.reason':'失败原因','failures.col.size':'请求大小','failures.col.detail':'请求详情',
+    'failures.empty':'连接后显示失败日志','failures.emptyRows':'暂无校正失败日志','failures.hint':'点击“查看”后才会读取完整请求体。',
+    'settings.title':'设置说明',
+    'settings.card1.title':'生效方式','settings.card1.body':'在「概览」修改开关后点击「保存设置」，配置立即生效，不需要重启 CPA。',
+    'settings.card2.title':'出口时区来源','settings.card2.body':'定时任务及手动获取均由服务器宿主机通过 Mihomo 探测，手动获取需要刷新辅助服务运行。',
+    'settings.card3.title':'日志与隐私','settings.card3.body':'普通活动记录不保存提示词；失败日志独立保存完整 Codex 请求体（可能含敏感信息），权限为 0600，单文件上限 48 MiB。',
+    'settings.card4.title':'状态有效期','settings.card4.body':'检测记录超过两小时将被视为过期，插件暂停注入，以免使用错误时区。',
+    'footer.disconnected':'未连接管理接口',
+    'state.paused':'● 已暂停','state.running':'● 运行中','state.expired':'● 状态过期','state.noZone':'暂无有效时区',
+    'flag.on':'● 正常','flag.off':'● 关闭',
+    'fb.needConnect':'请先输入管理密钥并连接','fb.connectFirst':'请先连接管理接口','fb.badKey':'管理密钥无效或没有访问权限','fb.httpFail':'请求失败（HTTP {n}）',
+    'fb.updated':'信息已更新','fb.connected':'● 已连接 CPA 管理接口',
+    'fb.activityCleared':'最近活动已清空','fb.statsCleared':'校正统计已清空','fb.failuresCleared':'失败日志已清空','fb.settingsSaved':'配置已保存并立即生效',
+    'fb.probeDone':'出口时区检测完成：{tz} / {ip}','fb.selftestOk':'本地自检通过：{tz}（未请求 Codex）',
+    'lastRefresh':'上次刷新：{time} · 状态记录约 {age} 分钟前','lastRefresh.none':'上次刷新：{time} · 状态记录不可用',
+    'unknown':'未知','protocol.codex':'Codex','btn.view':'查看','failure.descPrefix':'失败原因：',
+    'kind.encoded':'原始编码字段','kind.decoded':'原始请求体',
+    'st.matched':'● 模型一致','st.mismatched':'● 模型不一致','st.unknown':'○ 无法确认','st.rewritten':'● 时区已校正','st.skipped':'○ 未改写',
+    'reason.invalid_base64':'Body 编码无效','reason.invalid_body':'Body 缺失','reason.state_unavailable':'出口时区不可用','reason.rewrite_failed':'请求校正失败','reason.encode_failed':'重编码失败','reason.response_failed':'响应构造失败',
+    'cReason.同步功能已关闭':'同步功能已关闭','cReason.出口时区状态缺失或已过期':'出口时区状态缺失或已过期','cReason.请求重写自检失败':'请求重写自检失败',
+    'cReason.出口检测失败；请检查主机刷新服务及 Mihomo 出口':'出口检测失败；请检查主机刷新服务及 Mihomo 出口','cReason.出口检测后状态仍不可用':'出口检测后状态仍不可用'
+  },
+  'zh-Hant':{
+    'doc.title':'Codex Timezone Sync',
+    'app.subtitle':'同步 Codex 請求時區與出口節點時區',
+    'action.refresh':'重新整理資訊',
+    'auth.aria':'管理介面連線','auth.keyLabel':'管理金鑰','auth.keyPlaceholder':'輸入 CPA Management Key','auth.connect':'連線',
+    'auth.helper':'優先沿用 CPA Management 已記住的登入憑證。未啟用記住密碼時需重新輸入；本外掛不另行儲存金鑰。',
+    'tabs.aria':'管理面板','tab.overview':'總覽','tab.settings':'設定',
+    'status.syncState':'同步狀態','status.waiting':'等待連線','status.zone':'目前時區','status.offset':'出口時區偏移','status.ip':'出口 IP','status.refreshBtn':'重新整理狀態',
+    'metrics.aria':'請求校正統計','metrics.success':'成功修改','metrics.failure':'失敗修改','metrics.clear':'清除統計',
+    'core.title':'核心功能','core.col.feature':'功能','core.col.desc':'說明','core.col.status':'狀態','core.col.enable':'啟用',
+    'core.sync.title':'啟用時區同步','core.sync.desc':'將 Codex 請求時區與出口節點時區保持一致',
+    'core.egress.title':'出口時區偵測','core.egress.desc':'讀取出口 IP 與 IANA 時區','core.egress.probe':'取得',
+    'core.date.title':'請求日期校正','core.date.desc':'取代現有環境時區與日期，缺少時自動補上','core.date.follow':'隨同步',
+    'core.model.title':'上游模型一致性','core.model.desc':'唯讀比對入站請求和上游回應所回報的模型','core.model.monitoring':'● 監測中','core.model.readonly':'唯讀',
+    'core.log.title':'記錄請求日誌','core.log.desc':'一般活動日誌只記錄校正結果；失敗請求另行保存',
+    'ops.title':'操作','ops.selftest':'測試同步','ops.refresh':'重新整理資訊','ops.save':'儲存設定',
+    'ops.hint':'測試同步是本機請求改寫自我檢查，不會送出真正的 Codex 請求。',
+    'activity.title':'最近活動 · 時區與模型監測','activity.desc':'顯示通訊協定、原始時區、校正時區及上游回報模型；未提供的資料標示為未知。',
+    'activity.refresh':'重新整理活動','activity.clear':'清除',
+    'activity.col.time':'時間','activity.col.protocol':'通訊協定','activity.col.before':'校正前時區','activity.col.after':'校正後時區','activity.col.model':'請求模型','activity.col.upstream':'上游模型','activity.col.status':'狀態',
+    'activity.empty':'連線後顯示活動','activity.emptyRows':'暫無活動記錄',
+    'failures.title':'校正失敗日誌','failures.desc':'只保存校正失敗的 Codex 請求主體。可能包含完整提示詞等敏感內容，請限制管理金鑰及日誌檔案的存取權限。',
+    'failures.refresh':'重新整理失敗日誌','failures.clear':'清除失敗日誌',
+    'failures.col.time':'時間','failures.col.protocol':'通訊協定','failures.col.reason':'失敗原因','failures.col.size':'請求大小','failures.col.detail':'請求詳情',
+    'failures.empty':'連線後顯示失敗日誌','failures.emptyRows':'暫無校正失敗日誌','failures.hint':'點選「檢視」後才會讀取完整請求主體。',
+    'settings.title':'設定說明',
+    'settings.card1.title':'生效方式','settings.card1.body':'在「總覽」修改開關後點選「儲存設定」，設定立即生效，不需要重新啟動 CPA。',
+    'settings.card2.title':'出口時區來源','settings.card2.body':'定時任務及手動取得均由伺服器主機透過 Mihomo 偵測，手動取得需要重新整理輔助服務在執行中。',
+    'settings.card3.title':'日誌與隱私','settings.card3.body':'一般活動記錄不保存提示詞；失敗日誌另行保存完整 Codex 請求主體（可能含敏感資訊），權限為 0600，單檔上限 48 MiB。',
+    'settings.card4.title':'狀態有效期限','settings.card4.body':'偵測記錄超過兩小時即視為過期，外掛暫停注入，以免使用錯誤時區。',
+    'footer.disconnected':'未連線管理介面',
+    'state.paused':'● 已暫停','state.running':'● 運作中','state.expired':'● 狀態過期','state.noZone':'尚無有效時區',
+    'flag.on':'● 正常','flag.off':'● 關閉',
+    'fb.needConnect':'請先輸入管理金鑰並連線','fb.connectFirst':'請先連線管理介面','fb.badKey':'管理金鑰無效或沒有存取權限','fb.httpFail':'請求失敗（HTTP {n}）',
+    'fb.updated':'資訊已更新','fb.connected':'● 已連線 CPA 管理介面',
+    'fb.activityCleared':'最近活動已清除','fb.statsCleared':'校正統計已清除','fb.failuresCleared':'失敗日誌已清除','fb.settingsSaved':'設定已儲存並立即生效',
+    'fb.probeDone':'出口時區偵測完成：{tz} / {ip}','fb.selftestOk':'本機自我檢查通過：{tz}（未請求 Codex）',
+    'lastRefresh':'上次重新整理：{time} · 狀態記錄約 {age} 分鐘前','lastRefresh.none':'上次重新整理：{time} · 狀態記錄不可用',
+    'unknown':'未知','protocol.codex':'Codex','btn.view':'檢視','failure.descPrefix':'失敗原因：',
+    'kind.encoded':'原始編碼欄位','kind.decoded':'原始請求主體',
+    'st.matched':'● 模型一致','st.mismatched':'● 模型不一致','st.unknown':'○ 無法確認','st.rewritten':'● 時區已校正','st.skipped':'○ 未改寫',
+    'reason.invalid_base64':'Body 編碼無效','reason.invalid_body':'Body 缺少','reason.state_unavailable':'出口時區不可用','reason.rewrite_failed':'請求校正失敗','reason.encode_failed':'重新編碼失敗','reason.response_failed':'回應建構失敗',
+    'cReason.同步功能已关闭':'同步功能已關閉','cReason.出口时区状态缺失或已过期':'出口時區狀態缺少或已過期','cReason.请求重写自检失败':'請求改寫自我檢查失敗',
+    'cReason.出口检测失败；请检查主机刷新服务及 Mihomo 出口':'出口偵測失敗；請檢查主機重新整理服務及 Mihomo 出口','cReason.出口检测后状态仍不可用':'出口偵測後狀態仍不可用'
+  },
+  en:{
+    'doc.title':'Codex Timezone Sync',
+    'app.subtitle':'Align Codex request timezone with the egress node',
+    'action.refresh':'Refresh info',
+    'auth.aria':'Management API connection','auth.keyLabel':'Management key','auth.keyPlaceholder':'Enter CPA Management Key','auth.connect':'Connect',
+    'auth.helper':'Reuses the credentials CPA Management already remembers. If "remember password" is off you must re-enter it; the plugin stores no key of its own.',
+    'tabs.aria':'Management panel','tab.overview':'Overview','tab.settings':'Settings',
+    'status.syncState':'Sync status','status.waiting':'Waiting for connection','status.zone':'Current timezone','status.offset':'Egress UTC offset','status.ip':'Egress IP','status.refreshBtn':'Refresh status',
+    'metrics.aria':'Rewrite statistics','metrics.success':'Successful rewrites','metrics.failure':'Failed rewrites','metrics.clear':'Clear stats',
+    'core.title':'Core features','core.col.feature':'Feature','core.col.desc':'Description','core.col.status':'Status','core.col.enable':'Enabled',
+    'core.sync.title':'Enable timezone sync','core.sync.desc':'Keep the Codex request timezone consistent with the egress node',
+    'core.egress.title':'Egress timezone detection','core.egress.desc':'Reads the egress IP and IANA timezone','core.egress.probe':'Fetch',
+    'core.date.title':'Request date correction','core.date.desc':'Replaces the existing environment timezone and date, inserting them when absent','core.date.follow':'Follows sync',
+    'core.model.title':'Upstream model consistency','core.model.desc':'Read-only comparison of the requested model against the upstream-reported model','core.model.monitoring':'● Monitoring','core.model.readonly':'Read-only',
+    'core.log.title':'Record request log','core.log.desc':'The activity log records rewrite outcomes only; failed requests are stored separately',
+    'ops.title':'Actions','ops.selftest':'Test sync','ops.refresh':'Refresh info','ops.save':'Save settings',
+    'ops.hint':'Test sync runs a local rewrite self-check and sends no real Codex request.',
+    'activity.title':'Recent activity · timezone and model monitoring','activity.desc':'Shows protocol, original timezone, corrected timezone and the upstream-reported model; missing data is marked unknown.',
+    'activity.refresh':'Refresh activity','activity.clear':'Clear',
+    'activity.col.time':'Time','activity.col.protocol':'Protocol','activity.col.before':'Timezone before','activity.col.after':'Timezone after','activity.col.model':'Requested model','activity.col.upstream':'Upstream model','activity.col.status':'Status',
+    'activity.empty':'Activity appears after you connect','activity.emptyRows':'No activity yet',
+    'failures.title':'Rewrite failure log','failures.desc':'Stores Codex request bodies that failed rewriting. This may include full prompts, so restrict access to the management key and the log file.',
+    'failures.refresh':'Refresh failure log','failures.clear':'Clear failure log',
+    'failures.col.time':'Time','failures.col.protocol':'Protocol','failures.col.reason':'Failure reason','failures.col.size':'Request size','failures.col.detail':'Request detail',
+    'failures.empty':'Failures appear after you connect','failures.emptyRows':'No rewrite failures yet','failures.hint':'The full request body is read only after you click View.',
+    'settings.title':'About these settings',
+    'settings.card1.title':'How changes apply','settings.card1.body':'Toggle switches in Overview, then click Save settings — changes apply immediately with no CPA restart.',
+    'settings.card2.title':'Egress timezone source','settings.card2.body':'Both the scheduled task and the manual fetch probe from the server host through Mihomo; the manual fetch requires the refresh helper to be running.',
+    'settings.card3.title':'Logs and privacy','settings.card3.body':'The activity log stores no prompts; the failure log separately stores full Codex request bodies (possibly sensitive) with 0600 permissions and a 48 MiB cap.',
+    'settings.card4.title':'State freshness','settings.card4.body':'Detections older than two hours are treated as stale and the plugin stops injecting, so a wrong timezone is never used.',
+    'footer.disconnected':'Not connected to the management API',
+    'state.paused':'● Paused','state.running':'● Running','state.expired':'● State stale','state.noZone':'No valid timezone',
+    'flag.on':'● On','flag.off':'● Off',
+    'fb.needConnect':'Enter the management key and connect first','fb.connectFirst':'Connect to the management API first','fb.badKey':'Invalid management key or insufficient permission','fb.httpFail':'Request failed (HTTP {n})',
+    'fb.updated':'Updated','fb.connected':'● Connected to the CPA management API',
+    'fb.activityCleared':'Activity cleared','fb.statsCleared':'Statistics cleared','fb.failuresCleared':'Failure log cleared','fb.settingsSaved':'Settings saved and applied',
+    'fb.probeDone':'Egress timezone detected: {tz} / {ip}','fb.selftestOk':'Local self-check passed: {tz} (no Codex request sent)',
+    'lastRefresh':'Last refreshed: {time} · state about {age} min old','lastRefresh.none':'Last refreshed: {time} · state unavailable',
+    'unknown':'unknown','protocol.codex':'Codex','btn.view':'View','failure.descPrefix':'Reason: ',
+    'kind.encoded':'raw encoded field','kind.decoded':'decoded request body',
+    'st.matched':'● Model matches','st.mismatched':'● Model mismatch','st.unknown':'○ Unconfirmed','st.rewritten':'● Timezone corrected','st.skipped':'○ Not rewritten',
+    'reason.invalid_base64':'Invalid Body encoding','reason.invalid_body':'Missing Body','reason.state_unavailable':'Egress timezone unavailable','reason.rewrite_failed':'Request rewrite failed','reason.encode_failed':'Re-encoding failed','reason.response_failed':'Response construction failed',
+    'cReason.同步功能已关闭':'Sync is disabled','cReason.出口时区状态缺失或已过期':'Egress timezone state is missing or stale','cReason.请求重写自检失败':'Rewrite self-check failed',
+    'cReason.出口检测失败；请检查主机刷新服务及 Mihomo 出口':'Egress detection failed; check the host refresh service and Mihomo egress','cReason.出口检测后状态仍不可用':'Egress state still unavailable after detection'
+  }};
+
+  let lang='zh-Hans';
+  function detectLang(){
+    try{
+      const saved=localStorage.getItem(I18N_KEY);
+      if(saved&&I18N[saved])return saved;
+      const nav=(navigator.language||'').toLowerCase();
+      if(nav.startsWith('zh'))return /zh-(tw|hk|mo|hant)/.test(nav)?'zh-Hant':'zh-Hans';
+      return 'en';
+    }catch{return 'zh-Hans';}
+  }
+  function t(key,vars){
+    const dict=I18N[lang]||I18N['zh-Hans'];
+    let s=dict[key];if(s===undefined)s=I18N['zh-Hans'][key];if(s===undefined)s=key;
+    if(vars)for(const k in vars)s=s.split('{'+k+'}').join(vars[k]);
+    return s;
+  }
+  function reasonLabel(r){return t('reason.'+r);}
+  function cReason(r){const k='cReason.'+r;return t(k)===k?r:t(k);}
+  function applyI18n(){
+    document.documentElement.lang=lang;
+    document.title=t('doc.title');
+    for(const node of document.querySelectorAll('[data-i18n]'))node.textContent=t(node.dataset.i18n);
+    for(const node of document.querySelectorAll('[data-i18n-title]'))node.title=t(node.dataset.i18nTitle);
+    for(const node of document.querySelectorAll('[data-i18n-aria]'))node.setAttribute('aria-label',t(node.dataset.i18nAria));
+    for(const node of document.querySelectorAll('[data-i18n-placeholder]'))node.placeholder=t(node.dataset.i18nPlaceholder);
+    const picker=$('lang');if(picker)picker.value=lang;
+  }
+
   function savedManagementKey(){
     try {
       const stored=localStorage.getItem('cli-proxy-auth');if(!stored)return '';
@@ -113,29 +288,31 @@ svg{width:22px;height:22px;vertical-align:middle;fill:none;stroke:currentColor;s
   let models={matched:0,mismatched:0,unknown:0,records:[]};
   let stats={success:0,failure:0};
   let failures=[];
-  const select=(name,on)=>{const node=$(name);node.textContent=on?'● 正常':'● 关闭';node.className=on?'positive':'muted';};
+  let connected=false;
+  const select=(name,on)=>{const node=$(name);node.textContent=t(on?'flag.on':'flag.off');node.className=on?'positive':'muted';};
   function feedback(message,error=false) {const node=$('feedback');node.textContent=message;node.className=error?'feedback error':'feedback';}
   async function api(endpoint,method='GET',data=null) {
-    if(!managementKey)throw new Error('请先输入管理密钥并连接');
+    if(!managementKey)throw new Error(t('fb.needConnect'));
     const res=await fetch(path+endpoint,{method,cache:'no-store',headers:{'Authorization':'Bearer '+managementKey,...(data?{'Content-Type':'application/json'}:{})},...(data?{body:JSON.stringify(data)}:{})});
     if(!res.ok) {
-      if(res.status===401||res.status===403)throw new Error('管理密钥无效或没有访问权限');
+      if(res.status===401||res.status===403)throw new Error(t('fb.badKey'));
       const err=await res.json().catch(()=>null);
-      throw new Error(err?.reason||err?.error||'请求失败（HTTP '+res.status+'）');
+      throw new Error(cReason(err?.reason||err?.error)||t('fb.httpFail',{n:res.status}));
     }
     return res.json();
   }
   function renderStatus() {
     if(!status)return;
     const enabled=status.settings.enabled, ok=status.available;
-    const state=$('sync-state');state.textContent=!enabled?'● 已暂停':ok?'● 运行中':'● 状态过期';state.className=enabled&&ok?'big-status':enabled?'danger':'muted';
-    $('zone').textContent=ok?status.timezone:'暂无有效时区';
+    const state=$('sync-state');state.textContent=t(!enabled?'state.paused':ok?'state.running':'state.expired');state.className=enabled&&ok?'big-status':enabled?'danger':'muted';
+    $('zone').textContent=ok?status.timezone:t('state.noZone');
     $('offset').textContent=ok?`${status.abbreviation} / UTC${status.offset}`:'—';
-    $('ip').textContent=ok?(status.ip||'未知'):'—';
+    $('ip').textContent=ok?(status.ip||t('unknown')):'—';
     $('toggle-sync').checked=enabled;$('toggle-log').checked=status.settings.logging;
     $('toggle-sync').disabled=false;$('toggle-log').disabled=false;
     select('flag-sync',enabled);select('flag-state',ok);select('flag-rewrite',enabled&&ok);select('flag-log',status.settings.logging);
-    $('updated').textContent=`上次刷新：${new Date().toLocaleString('zh-CN')} · 状态记录约 ${ok?Math.floor(status.age_seconds/60)+' 分钟前':'不可用'}`;
+    const time=new Date().toLocaleString(lang);
+    $('updated').textContent=ok?t('lastRefresh',{time,age:Math.floor(status.age_seconds/60)}):t('lastRefresh.none',{time});
   }
   function renderStats(){
     $('count-success').textContent=stats.success;
@@ -159,29 +336,27 @@ svg{width:22px;height:22px;vertical-align:middle;fill:none;stroke:currentColor;s
     }
     records.forEach((record,i)=>{if(!modelUsed.has(i))rows.push({timestamp:record.timestamp,before:record.timezone_before||'unknown',after:record.timezone_after||'unknown',model:record.requested_model||'unknown',upstream:record.upstream_model||'unknown',status:record.status||'unknown'});});
     rows.sort((a,b)=>b.timestamp-a.timestamp);
-    if(!rows.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=7;td.className='empty';td.textContent='暂无活动记录';tr.append(td);el.append(tr);return;}
-    const states={matched:'● 模型一致',mismatched:'● 模型不一致',unknown:'○ 无法确认',rewritten:'● 时区已校正',skipped:'○ 未改写'};
+    if(!rows.length){const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=7;td.className='empty';td.textContent=t('activity.emptyRows');tr.append(td);el.append(tr);return;}
     for(const event of rows.slice(0,60)){
       const tr=document.createElement('tr');
-      const values=[new Date(event.timestamp*1000).toLocaleString('zh-CN'),'Codex',event.before,event.after,event.model,event.upstream,states[event.status]||'○ 无法确认'];
-      for(const value of values){const td=document.createElement('td');td.textContent=value==='unknown'?'未知':value;tr.append(td);}el.append(tr);
+      const values=[new Date(event.timestamp*1000).toLocaleString(lang),t('protocol.codex'),event.before,event.after,event.model,event.upstream,t('st.'+event.status)];
+      for(const value of values){const td=document.createElement('td');td.textContent=value==='unknown'?t('unknown'):value;tr.append(td);}el.append(tr);
     }
   }
   function renderFailures(){
     const body=$('failure-body');body.replaceChildren();
     if(!failures.length){
       const tr=document.createElement('tr'),td=document.createElement('td');
-      td.colSpan=5;td.className='empty';td.textContent='暂无校正失败日志';
+      td.colSpan=5;td.className='empty';td.textContent=t('failures.emptyRows');
       tr.append(td);body.append(tr);return;
     }
-    const names={invalid_base64:'Body 编码无效',invalid_body:'Body 缺失',state_unavailable:'出口时区不可用',rewrite_failed:'请求校正失败',encode_failed:'重编码失败',response_failed:'响应构造失败'};
     for(const item of failures) {
       const tr=document.createElement('tr');
-      for(const value of [new Date(item.timestamp*1000).toLocaleString('zh-CN'),'Codex',names[item.reason]||item.reason,item.size+' B']){
+      for(const value of [new Date(item.timestamp*1000).toLocaleString(lang),t('protocol.codex'),reasonLabel(item.reason),item.size+' B']){
         const td=document.createElement('td');td.textContent=value;tr.append(td);
       }
       const td=document.createElement('td'),button=document.createElement('button');
-      button.className='outline';button.textContent='查看';button.style.minHeight='32px';
+      button.className='outline';button.textContent=t('btn.view');button.style.minHeight='32px';
       button.addEventListener('click',()=>guarded(async()=>{
         const detail=await api('failures/view','POST',{id:item.id});
         const decoded=new TextDecoder().decode(Uint8Array.from(atob(detail.body_base64),c=>c.charCodeAt(0)));
@@ -189,19 +364,30 @@ svg{width:22px;height:22px;vertical-align:middle;fill:none;stroke:currentColor;s
         if(detail.kind==='decoded-body'){
           try{formatted=JSON.stringify(JSON.parse(decoded),null,2);}catch{}
         }
-        $('failure-description').textContent='失败原因：'+(names[detail.reason]||detail.reason)+' · '+(detail.kind==='encoded-field'?'原始编码字段':'原始请求体');
+        $('failure-description').textContent=t('failure.descPrefix')+reasonLabel(detail.reason)+' · '+(detail.kind==='encoded-field'?t('kind.encoded'):t('kind.decoded'));
         $('failure-json').textContent=formatted;$('failure-json').hidden=false;
       }));
       td.append(button);tr.append(td);body.append(tr);
     }
   }
   async function refresh(){
-    if(!managementKey){feedback('请先连接管理接口',true);return;}
+    if(!managementKey){feedback(t('fb.needConnect'),true);return;}
     try {
-      const [s,l,m,c,f]=await Promise.all([api('status'),api('logs'),api('models').catch(()=>({matched:0,mismatched:0,unknown:0,records:[]})),api('stats'),api('failures')]);
+      // Probe with one authenticated request first: CPA bans an IP after 5 failed
+      // attempts, and the old batch of five parallel calls burned all five at once.
+      const s=await api('status');
+      // Remaining panels load best-effort; one unavailable endpoint must not
+      // abort the whole refresh and hide the rest of the state.
+      const [l,m,c,f]=await Promise.all([
+        api('logs').catch(()=>({events:[]})),
+        api('models').catch(()=>({matched:0,mismatched:0,unknown:0,records:[]})),
+        api('stats').catch(()=>({success:0,failure:0})),
+        api('failures').catch(()=>({records:[]}))
+      ]);
       status=s;logs=l.events||[];models=m;stats=c;failures=f.records||[];
-      renderStatus();renderStats();renderActivity();renderFailures();feedback('信息已更新');
-      $('connection').textContent='● 已连接 CPA 管理接口';$('connection').className='helper connected';
+      renderStatus();renderStats();renderActivity();renderFailures();feedback(t('fb.updated'));
+      connected=true;
+      $('connection').textContent=t('fb.connected');$('connection').className='helper connected';
     } catch(err){feedback(err.message,true);throw err;}
   }
   async function guarded(action){try{await action();}catch(err){feedback(err.message,true);}}
@@ -212,28 +398,41 @@ svg{width:22px;height:22px;vertical-align:middle;fill:none;stroke:currentColor;s
   for(const id of ['refresh','refresh2','top-refresh','refresh-activity'])$(id).addEventListener('click',()=>guarded(refresh));
   $('clear-activity').addEventListener('click',()=>guarded(async()=>{
     await api('activity/clear','POST');logs=[];models={matched:0,mismatched:0,unknown:0,records:[]};
-    renderActivity();feedback('最近活动已清空');
+    renderActivity();feedback(t('fb.activityCleared'));
   }));
   $('clear-stats').addEventListener('click',()=>guarded(async()=>{
-    await api('stats/clear','POST');stats={success:0,failure:0};renderStats();feedback('校正统计已清空');
+    await api('stats/clear','POST');stats={success:0,failure:0};renderStats();feedback(t('fb.statsCleared'));
   }));
   $('refresh-failures').addEventListener('click',()=>guarded(refresh));
   $('clear-failures').addEventListener('click',()=>guarded(async()=>{
     await api('failures/clear','POST');failures=[];renderFailures();
     $('failure-json').textContent='';$('failure-json').hidden=true;
-    $('failure-description').textContent='失败日志已清空';feedback('失败日志已清空');
+    $('failure-description').textContent=t('failures.hint');feedback(t('fb.failuresCleared'));
   }));
   $('probe-egress').addEventListener('click',()=>guarded(async()=>{
     const button=$('probe-egress');button.disabled=true;
     try{
       const result=await api('egress/refresh','POST');
       await refresh();
-      feedback('出口时区检测完成：'+result.timezone+' / '+result.ip);
+      feedback(t('fb.probeDone',{tz:result.timezone,ip:result.ip}));
     }finally{button.disabled=false;}
   }));
-  $('save').addEventListener('click',()=>guarded(async()=>{if(!status)throw new Error('请先连接管理接口');await api('settings','PUT',{enabled:$('toggle-sync').checked,logging:$('toggle-log').checked});await refresh();feedback('配置已保存并立即生效');}));
-  $('selftest').addEventListener('click',()=>guarded(async()=>{const result=await api('selftest','POST');feedback('本地自检通过：'+result.timezone+'（未请求 Codex）');}));
+  $('save').addEventListener('click',()=>guarded(async()=>{if(!status)throw new Error(t('fb.connectFirst'));await api('settings','PUT',{enabled:$('toggle-sync').checked,logging:$('toggle-log').checked});await refresh();feedback(t('fb.settingsSaved'));}));
+  $('selftest').addEventListener('click',()=>guarded(async()=>{const result=await api('selftest','POST');feedback(t('fb.selftestOk',{tz:result.timezone}));}));
   document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{for(const t of document.querySelectorAll('.tab'))t.setAttribute('aria-selected',String(t===tab));for(const v of ['overview','settings']){$(v+'-view').classList.toggle('active',v===tab.dataset.view && v!=='overview');if(v==='overview')$('overview-view').classList.toggle('hidden',v!==tab.dataset.view);}}));
+  $('lang').addEventListener('change',()=>{
+    lang=I18N[$('lang').value]?$('lang').value:'zh-Hans';
+    try{localStorage.setItem(I18N_KEY,lang);}catch{}
+    applyI18n();
+    // Re-render code-generated content in the new language.
+    if(status){renderStatus();renderStats();renderActivity();renderFailures();}
+    connected?($('connection').textContent=t('fb.connected'),$('connection').className='helper connected')
+             :($('connection').textContent=t('auth.helper'),$('connection').className='helper');
+    if(!status)$('updated').textContent=t('footer.disconnected');
+  });
+  lang=detectLang();
+  applyI18n();
+  $('updated').textContent=t('footer.disconnected');
 })();
 </script>
 </body>
